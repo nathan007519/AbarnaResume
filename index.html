@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <style>
+    body {
+      font-family: 'IBM Plex Mono', monospace;
+      background-color: #121212;
+      color: #E0E0E0;
+    }
+    .navbar {
+      background-color: #1E1E1E;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .navbar a {
+      color: #B0BEC5;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover {
+      color: #00ADB5;
+    }
+    .section-box {
+      background-color: #1E1E1E;
+      color: #E0E0E0;
+      padding: 2rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .section-box:hover {
+      transform: translateY(-5px);
+      background-color: #292929;
+    }
+    .skill-item {
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+    .skill-item:hover {
+      transform: translateX(8px);
+      color: #00ADB5;
+    }
+    .hidden-list {
+      display: none;
+      margin-top: 10px;
+    }
+    .section-box:hover .hidden-list {
+      display: block;
+      animation: fadeIn 0.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .certificate-item {
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .certificate-item:hover {
+      color: #00ADB5;
+    }
+    .certificate-image {
+      display: none;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
+    .profile-img {
+      transition: transform 0.3s ease-in-out;
+    }
+    .profile-img:hover {
+      transform: scale(1.1) rotate(3deg);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+  <nav class="navbar flex justify-between items-center">
+    <div class="text-xl font-bold text-white">MY PAGE</div>
+    <div class="space-x-4">
+      <a href="#" class="hover:text-red-500">HOME</a>
+      <a href="#" class="hover:text-red-500">ABOUT</a>
+    </div>
+  </nav>
+
+
+  <div class="container mx-auto mt-10 p-4 flex-grow fade-in">
+    <div class="flex flex-col items-center md:flex-row md:items-start md:space-x-8">
+      <div class="w-32 h-32 bg-gray-700 mb-4 md:mb-0 rounded-full overflow-hidden">
+        <img src="./Abarna.jpg" alt="Profile picture placeholder" class="w-full h-full object-cover profile-img"/>
+      </div>
+      <div class="text-center md:text-left">
+        <h1 class="text-2xl font-bold text-white">Abarna Ravi</h1>
+        <p class="text-lg">
+          I'm <span class="text-red-400 input"></span>
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="section-box text-center hover-effect">
+        <h2 class="font-bold text-lg">SKILLS</h2>
+        <ul class="hidden-list text-sm">
+          <li class="skill-item">🔹 C++</li>
+          <li class="skill-item">🔹 Java</li>
+          <li class="skill-item">🔹 PHP</li>
+          <li class="skill-item">🔹 Python</li>
+          <li class="skill-item">🔹 JavaScript</li>
+          <li class="skill-item">🔹 HTML</li>
+          <li class="skill-item">🔹 CSS</li>
+        </ul>
+      </div>
+
+      <!-- Certificates Section (Now Above Experience) -->
+      <div class="section-box text-center hover-effect">
+        <h2 class="text-lg font-bold">CERTIFICATES</h2>
+        <ul class="hidden-list text-sm">
+          <li class="certificate-item" onmouseover="showCertificate('cert1')" onmouseout="hideCertificate()">🎓 Introduction to agile methodology</li>
+          <li class="certificate-item" onmouseover="showCertificate('cert2')" onmouseout="hideCertificate()">🎓 Introduction to Cybersecurity</li>
+          <li class="certificate-item" onmouseover="showCertificate('cert3')" onmouseout="hideCertificate()">🎓 Object Oriented Programming in python</li>
+          <li class="certificate-item" onmouseover="showCertificate('cert4')" onmouseout="hideCertificate()">🎓 Threat Modelling</li>
+          <li class="certificate-item" onmouseover="showCertificate('cert5')" onmouseout="hideCertificate()">🎓 Identity Governance and Administration</li>
+        </ul>
+        <img id="certificate-image" class="certificate-image" src="" alt="Certificate Preview">
+      </div>
+
+      <div class="section-box text-center hover-effect">
+        <h2 class="font-bold text-lg">EXPERIENCE</h2>
+        <p class="hidden-list text-sm">No Experience Yet</p>
+      </div>
+
+      <div class="section-box text-center hover-effect">
+        <h2 class="font-bold text-lg">CONTACT</h2>
+        <ul class="hidden-list text-sm">
+          <li>📞 Phone: <a href="tel:+91 72002 21808" class="text-cyan-400 hover:text-red-400">+91 72002 21808</a></li>
+          <li>📷 Instagram: <a href="https://www.instagram.com/pooja_official__16/" class="text-cyan-400 hover:text-red-400">@pooja_official__16</a></li>
+          <li>💻 Mail: <a href="mailto:abarnaravi2006@gmail.com" class="text-cyan-400 hover:text-red-400">abarnaravi2006@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var typed = new Typed('.input', {
+      strings: ["Web Developer!", "Writer!"],
+      typeSpeed: 100,
+      backSpeed: 100,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|',
+    });
+
+    function showCertificate(cert) {
+      const image = document.getElementById("certificate-image");
+      const images = {
+        cert1: "./Introduction to agile methodology.png",
+        cert2: "./introductiontocybersecurity.png",
+        cert3: "./OOPSinpython.png",
+        cert4: "./ThreatModelling.png",
+        cert5: "./IGA.png",
+      };
+      image.src = images[cert];
+      image.style.display = "block";
+    }
+
+    function hideCertificate() {
+      document.getElementById("certificate-image").style.display = "none";
+    }
+  </script>
+</body>
+</html>
